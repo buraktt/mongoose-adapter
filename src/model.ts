@@ -27,7 +27,7 @@ export interface IModel extends Document {
 export const collectionName = 'casbin_rule';
 export const modelName = 'CasbinRule';
 
-export const schema = (timestamps = false) => {
+export const schema = (timestamps = false, collection = collectionName) => {
   return new Schema({
     ptype: {
       type: Schema.Types.String,
@@ -59,8 +59,8 @@ export const schema = (timestamps = false) => {
       index: true
     }
   }, {
-    collection: collectionName,
+    collection,
     minimize: false,
-    timestamps: timestamps
+    timestamps
   });
 }
